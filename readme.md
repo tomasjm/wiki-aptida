@@ -1,5 +1,9 @@
-# Indice
-- [Indice](#indice)
+# Wiki del código fuente de la plataforma Aptida
+
+En este repositorio se encuentra la información en forma de Wiki escrita en Markdown correspondiente a la plataforma Aptida, haciendo distinción entre el front-end, back-end y los requerimientos del servidor de producción (donde se aloja el software back-end).
+
+# Tabla de contenidos
+- [Tabla de contenidos](#tabla-de-contenidos)
 - [Documentación del front-end: Aptida](#documentación-del-front-end-aptida)
   - [Tecnologias utilizadas](#tecnologias-utilizadas)
   - [Librerias utilizadas](#librerias-utilizadas)
