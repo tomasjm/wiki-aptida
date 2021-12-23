@@ -92,8 +92,31 @@ En la carpeta `context` se tienen dos archivos:
 Se utiliza context como una store general en donde se podrá acceder a estos datos desde cualquier parte de la aplicación (a nivel de componente), para entender el por qué, se puede revisar sobre el concepto `react props to children vs context`.
 
 ## Peticiones
+Para revisar las peticiones HTTP existentes, es necesario revisar la documentación Swagger del backend, sin embargo, el front-end contiene todas las peticiones necesarias para su funcionamiento incluidas en el archivo `requests/requests.ts`.
+
+Cada petición está envuelta en una función en donde su nombre explica que datos trae y que necesita, en caso de duda, se recomienda revidar la documentación Swagger del back-end.
+
+Para las peticiones se usa el Wrapper de Axios que es una conocida libreria para hacer fetching de datos a un servidor. React-query se utiliza solo para hacer cache de la selección de datos del formulario, y que los datos de visualización se mantengan actualizados ante una eventual inactividad del usuario.
 
 ## Autenticación
+
+Para la autenticación se utiliza un método basado en tokens, especificamente bajo método de bearer tokens con JWT, este se basa en que un objeto de datos json se hashea con un SECRET solo conocido por el servidor, este hash es desencriptable por lo tanto no se debe incluir información sensible dentro del objeto. La gracia es que solo conociendo el SECRET se puede VALIDAR el token.
+
+El flujo de autenticación es enviar una petición POST al servidor en la ruta `auth/login` con un body de tipo `application/json` con la estructura:
+
+`
+{
+  "user": {
+    "usuario": "<string>",
+    "password": "<string>"
+  }
+}
+`
+La respuesta del servidor ante un login de datos correctos, será un JWT (Json Web Token) el cual se utilizará para validar la sesión del usuario. En caso contrario, el servidor enviará un código de error.
+
+Para validar la sesión del usuario, se debe enviar el token a la ruta `auth/token` con la cabecera Authentication con el formato `Bearer <JWT>`, el servidor enviará un código de respuesta que puede ser correcto o incorrecto.
+
+Esta autenticación puede mejorarse implementando seguridad de refresh tokens y access tokens, incluyendo CSRF Tokens y otros, bajo el estándar de flujo de autenticación OAuth 2.0. Esto se trabaja e implementa en el software back-end.
 
 ## Hooks
 
