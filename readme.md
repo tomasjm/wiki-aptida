@@ -195,9 +195,15 @@ Se agrega cierta lógica condicional para gráficar lineas verticales de los lav
 Para entender este componente lo mejor sería leer la documentación oficial de Recharts ya que se explica todo en detalle y no se realizó una implementación avanzada sobre este, en particular, se profundizó en [AreaChart](https://recharts.org/en-US/api) y también [YAxis](https://recharts.org/en-US/api/YAxis).
 
 ### Tabla
+Este componente cuenta con la tabla y un botón para guardar los datos de la tabla en un archivo excel.
+
+Los datos de la tabla se asignan según los requisitos documentados por [react-data-table-component](https://github.com/jbetancur/react-data-table-component) y el resto lo maneja automáticamente.
+
+
 
 ### Mapa
-
+Este componente se renderiza con SSR desactivado, que viene habilitado por defecto por el framework NextJS, de lo contrario, no funciona. 
+El componente Mapa hace uso de un wrapper que entrega [react-leaflet-universal](https://github.com/masotime/react-leaflet-universal) y los componentes marcadores, popups, etc de [react-leaflet](https://react-leaflet.js.org).
 
 
 # Documentación del servidor back-end: API y Base de Datos
