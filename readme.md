@@ -174,16 +174,31 @@ La gracia de este hook es que solo se le deben ingresar los parametros de:
 Y con esto, entregará los datos necesarios para ser graficados.
 
 ### useTable
+Este hook es muy similar al hook anterior, con la diferencia que este es especificamente para el componente de la tabla, y además, genera las columnas necesarias, todo esto siguiendo la documentación ofrecida por el componente [react-data-table-component](https://github.com/jbetancur/react-data-table-component). Ver información sobre componentes importantes para saber como funciona.
 
 ### useMapa
+Este hook solo tiene como función cargar los datos de las torres existentes, no tiene función especifica.
 
 ## Componentes importantes
+
+### Gráfico
+El componente Gráfico está basado en la libreria de gráficas de react Recharts, que usa la librería d3.js por debajo y grafica usando svg. Se encuentran tres funciones adicionales en este archivo, uno de utilidad para truncar los decimales y dos de funcionalidad para representar las zonas de riesgo solicitadas en el inicio del proyecto (depreciado en este momento), estas dos funciones son `zonaAreas` y `zonaLineas` que devuelven componentes de Recharts según los datos de RIESGO de la tabla de variables de la base de datos, es completamente representativo, es decir, solo se asigna texto, colores y limites según los datos que llegan.
+
+El componente Gráfico fue escrito para funcionar con dos variables a la vez, como los requisitos del proyecto fueron cambiados constantemente, se llegó a la conclusión de cambiar de componente gráfico como ChartJS, ApexCharts o VictoryCharts, siendo estos dos últimos buenas opciones en rendimiento, sin embargo, ChartJS es más conocida.
+
+Hay un procesamiento previo de los limites minimos y máximos para la primera variable, donde simplemente se establecen ciertas condiciones según los datos para añadir un GAP en estos limites, para que el gráfico no se vea tan acotado, no tiene ninguna funcionalidad importante que afecte al funcionamiento del gráfico o representatividad correcta de los datos, es solo gusto visual, puede refactorizarse dado que se realizó según peticiones.
+
+Las propiedades del gráfico y los sub-componentes fueron realizados según la documentación de cada componente de Recharts, esta librería se encarga de la mayoria.
+
+Se agrega cierta lógica condicional para gráficar lineas verticales de los lavados que llegan de la base de datos según estos existan.
+
+Para entender este componente lo mejor sería leer la documentación oficial de Recharts ya que se explica todo en detalle y no se realizó una implementación avanzada sobre este, en particular, se profundizó en [AreaChart](https://recharts.org/en-US/api) y también [YAxis](https://recharts.org/en-US/api/YAxis).
 
 ### Tabla
 
 ### Mapa
 
-### Gráfico
+
 
 # Documentación del servidor back-end: API y Base de Datos
 
