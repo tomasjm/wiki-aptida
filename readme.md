@@ -48,7 +48,7 @@ Esta es la documentación correspondiente al repositorio de `sensores-front`, es
 - Para los formularios se utilizan componentes custom y un componente comunitario [react-day-picker](https://react-day-picker.js.org/)
 - Para los componentes de loading se hace uso de [react-spinners](https://github.com/davidhu2000/react-spinners)
 - Para la tabla de datos se hace uso del componente [react-data-table-component](https://github.com/jbetancur/react-data-table-component)
-- Para el uso de fechas y localizaciones se hace uso de [Momentjs(https://momentjs.com/)
+- Para el uso de fechas y localizaciones se hace uso de [Momentjs](https://momentjs.com/)
 - Para pasar de HTML a una Imagen se hace uso de [html-to-image](https://www.npmjs.com/package/html-to-image) y [file-saver](https://www.npmjs.com/package/file-saver)
 - Para peticiones de datos y caching se usa de la libreria [react-query](https://react-query.tanstack.com/)
 
